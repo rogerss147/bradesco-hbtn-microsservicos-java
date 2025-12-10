@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/messages")
 public class MessageResource {
 
-    private static final String WELCOME_MESSAGE = "BEM VINDO A AULA DE MICROSSERVICO USANDO SPRING BOOT !!!";
+    private static final String WELCOME_MESSAGE = "BEM VINDO A AULA DE MICROSSERVIÇO USANDO SPRING BOOT !!!";
     private static final String MISSING_CREDENTIALS = "USUARIO E SENHA NAO INFORMADOS";
     private static final String INVALID_CREDENTIALS = "USUÁRIO E SENHA INVÁLIDOS";
     private static final String SUCCESS_LOGIN = "LOGIN EFETUADO COM SUCESSO !!!";
