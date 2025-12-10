@@ -1,0 +1,3 @@
+﻿GET http://localhost:8080/messages/simpleMessageWelcome
+
+BEM VINDO A AULA DE MICROSSERVICO USANDO SPRING BOOT !!!
