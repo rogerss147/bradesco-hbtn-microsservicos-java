@@ -16,6 +16,7 @@ HTTP/1.1 400 Bad Request
   "status": 400,
   "message": "You have entered CPF 0 invalid."
 }
+{"status":400,"message":"You have entered CPF 0 invalid."}
 
 GET http://localhost:8081/user-api/users/user-cpf/1234567899876543
 HTTP/1.1 400 Bad Request
