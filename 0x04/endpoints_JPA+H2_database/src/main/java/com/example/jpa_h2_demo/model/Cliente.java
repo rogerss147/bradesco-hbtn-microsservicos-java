@@ -3,6 +3,8 @@ package com.example.jpa_h2_demo.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,20 +20,24 @@ public class Cliente {
     private Long id;
     private String nome;
     private String email;
+    private Integer idade;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Telefone> telefones = new ArrayList<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Endereco> enderecos = new ArrayList<>();
 
     public Cliente() {
     }
 
-    public Cliente(Long id, String nome, String email) {
+    public Cliente(Long id, String nome, String email, Integer idade) {
         this.id = id;
         this.nome = nome;
         this.email = email;
+        this.idade = idade;
     }
 
     public Long getId() {
@@ -56,6 +62,14 @@ public class Cliente {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Integer getIdade() {
+        return idade;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
     }
 
     public List<Telefone> getTelefones() {

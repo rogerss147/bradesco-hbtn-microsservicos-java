@@ -1,5 +1,7 @@
 package com.example.jpa_h2_demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,20 +15,28 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String logradouro;
+    private String numero;
+    private String bairro;
     private String cidade;
     private String estado;
+    private String endereco;
 
+    @JsonBackReference
     @ManyToOne
     private Cliente cliente;
 
     public Endereco() {
     }
 
-    public Endereco(Long id, String logradouro, String cidade, String estado, Cliente cliente) {
+    public Endereco(Long id, String logradouro, String numero, String bairro, String cidade, String estado,
+                    String endereco, Cliente cliente) {
         this.id = id;
         this.logradouro = logradouro;
+        this.numero = numero;
+        this.bairro = bairro;
         this.cidade = cidade;
         this.estado = estado;
+        this.endereco = endereco;
         this.cliente = cliente;
     }
 
@@ -46,6 +56,22 @@ public class Endereco {
         this.logradouro = logradouro;
     }
 
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
     public String getCidade() {
         return cidade;
     }
@@ -60,6 +86,14 @@ public class Endereco {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
 
     public Cliente getCliente() {

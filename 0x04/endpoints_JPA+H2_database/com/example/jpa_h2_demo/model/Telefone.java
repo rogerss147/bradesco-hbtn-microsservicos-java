@@ -1,5 +1,7 @@
 package com.example.jpa_h2_demo.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,19 +14,20 @@ public class Telefone {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String ddd;
     private String numero;
-    private String tipo;
 
+    @JsonBackReference
     @ManyToOne
     private Cliente cliente;
 
     public Telefone() {
     }
 
-    public Telefone(Long id, String numero, String tipo, Cliente cliente) {
+    public Telefone(Long id, String ddd, String numero, Cliente cliente) {
         this.id = id;
+        this.ddd = ddd;
         this.numero = numero;
-        this.tipo = tipo;
         this.cliente = cliente;
     }
 
@@ -36,20 +39,20 @@ public class Telefone {
         this.id = id;
     }
 
+    public String getDdd() {
+        return ddd;
+    }
+
+    public void setDdd(String ddd) {
+        this.ddd = ddd;
+    }
+
     public String getNumero() {
         return numero;
     }
 
     public void setNumero(String numero) {
         this.numero = numero;
-    }
-
-    public String getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
     }
 
     public Cliente getCliente() {
